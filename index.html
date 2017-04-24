@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    
+    div{
+      width: 300px;
+      height: 400px;
+      margin: 100px auto;
+    }
+    ul,li{
+      list-style: none;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+    }
+    li{
+      width: 260px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+
+    }
+    .txt{
+      width: 200px;
+      height: 20px;
+      outline: none;
+        border:none;
+        border: 1px solid #000;     
+    }
+    .btn{
+      width: 50px;
+      height: 20px;
+      border: 1px solid #000;
+      background-color: blue;
+    }
+    .a{
+      text-decoration: line-through;
+      opacity: 0.5;
+
+    }
+    .del{
+      width: 50px;
+      height: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: pink;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div>
+    <input type="text" class="txt">
+    <button class="btn">add</button>
+    <ul></ul>
+  </div>
+  
+
+  <script src="jquery.min.js"></script>
+  <script>
+    $('.btn').on("click",function(){
+       
+      // $("ul").prepend("<li><input type='checkbox' class='w'>"+$(".txt").val()+"<button class='del'>删除</button></li>");
+                
+                if($(".txt").val()==""){
+                    
+                }else{
+                  $("ul").prepend("<li><input type='checkbox' class='w'>"+$(".txt").val()+"<button class='del'>删除</button></li>");
+                }
+      $(".txt").val("");
+      $(".del").on("click",function(){
+        _this = $(this);
+              _this.parent().remove();  
+      })
+      $(".w").on("click",function(){
+      
+      
+      if($(this).prop("checked") == true){
+        $(this).parent().addClass('a');
+      }else{
+        $(this).parent().removeClass('a');
+      }
+    })
+
+    })
+    
+  </script>
+</body>
+</html>
